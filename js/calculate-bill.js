@@ -15,26 +15,25 @@ var billTotalElement = document.querySelector(".billTotal");
 
 // add event listener
 
-calculateBtnElement.addEventListener('click', function calculateBtnClicked() {
-    function totalPhoneBill(){
-        var billString = billStringField.value;
-        var isPhoneBill = billString.split(', ');
-          
-          var isTotalBill=0;
-          for(var i=0;i<isPhoneBill.length;i++){
-          var isBill= isPhoneBill[i].trim();
-            //console.log(isBill);
-           if(isBill == 'call'){
-           isTotalBill += 2.75;
-           } else if(isBill == 'sms'){
-           isTotalBill += 0.65
-           }
+calculateBtnElement.addEventListener('click', function calculateBtnClicked(billString) {
+   
+        // get the string entered in the textArea
+        //split the string
+        var billItems = billString.split(",");
+        // a variable for the total phone bill.
+        var billTotal = 0;
+        //loop over all the bill items
+        for (var i=0;i<billItems.length;i++){
+            var billItem = billItems[i].trim();
+            if (billItem === "call"){
+                billTotal += 2.75;
+            }
+            else if (billItem === "sms"){
+                billTotal += 0.75;
+            }
         }
-          //console.log("R" + isTotalBill.toFixed(2));
-           return "R" + isTotalBill.toFixed(2);// rounds off to the 2nd decimal place
-       
-        }
-       
-        var roundedBillTotal = totalPhoneBill(billString);
-    billTotalElement.innerHTML = roundedBillTotal;
+        
+        //round to two decimals
+        var roundedBillTotal = billTotal.toFixed(2);
+        billTotalElement.innerHTML = roundedBillTotal;
     });
