@@ -20,3 +20,26 @@
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen.
 // * check the value thresholds and display the total value in the right color.
+//var billItemTypeWithSettingsElem = document.querySelector('.billItemTypeWithSettings');
+//get a reference to the add button
+var settingsAddBtnElem = document.querySelector('.settingsAddBtn');
+var callTotalSettingsElem = document.querySelector('.callTotalSettings');
+var smsTotalSettingsElem = document.querySelector('.smsTotalSettings');
+var totalSettingsElem = document.querySelector('.totalSettings');
+var callCostSettingElem = document.querySelector('.callCostSetting');
+var smsCostSettingElem = document.querySelector('.smsCostSetting');
+var warningLevelSettingElem = document.querySelector('.warningLevelSetting'); 
+var criticalLevelSettingElem = document.querySelector('.criticalLevelSetting');
+// update setting button
+var updateSettingsBtn = document.querySelector('.updateSettings');
+
+settingsAddBtnElem.addEventListener('click', function(){
+    var billItemTypeWithSettingsElem = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+
+    alert('I am working')
+})
+updateSettingsBtn.addEventListener('click', function(){
+    alert('I am also working')
+})
+
+ 
