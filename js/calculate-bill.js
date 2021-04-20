@@ -16,7 +16,7 @@ function totalPhoneBill(billString){
     }
        return isTotalBill.toFixed(2);
     }   
-    function calculateBtnClicked(){
+    function calculateBtnClicked(){ 
         var billString= billStringElement.value;
         var roundedBillTotal = totalPhoneBill(billString);
         billTotalElement.innerHTML= roundedBillTotal;
