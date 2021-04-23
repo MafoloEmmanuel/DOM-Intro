@@ -28,7 +28,6 @@ function radioBillTotal(){
     if (billItemTypeRadioElem){
         // billItemType will be 'call' or 'sms'
     
-
     var billItemType = billItemTypeRadioElem.value;
     console.log(billItemType);
     if (billItemType === "call"){
@@ -40,7 +39,7 @@ function radioBillTotal(){
 }
     // billItemType will be 'call' or 'sms'
 
-    console.log(totalSms, totalCall );
+    //console.log(totalSms, totalCall );
 
     callTotalTwoElem.innerHTML = totalCall.toFixed(2);
     smsTotalTwoElem.innerHTML = totalSms.toFixed(2);

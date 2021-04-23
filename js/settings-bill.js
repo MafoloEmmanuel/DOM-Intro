@@ -33,13 +33,56 @@ var criticalLevelSettingElem = document.querySelector('.criticalLevelSetting');
 // update setting button
 var updateSettingsBtn = document.querySelector('.updateSettings');
 
-settingsAddBtnElem.addEventListener('click', function(){
-    var billItemTypeWithSettingsElem = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+var callsTotal=0;
+var smsesTotal=0;
+var totalCosts=0;
+var smsCost =0;
+var callCost = 0;
+var warning = 0;
+var critical = 0;
 
-    alert('I am working')
-})
-updateSettingsBtn.addEventListener('click', function(){
-    alert('I am also working')
-})
+function settingsUpdateBill(){
+    callCost = Number(callCostSettingElem.value);
+    smsCost = Number(smsCostSettingElem.value);
+     warning = warningLevelSettingElem.value;
+     critical = criticalLevelSettingElem.value;
+  //console.log(callCost);
+ // console.log(smsCost);
+ // console.log(warning);
+ // console.log(critical);
+}
+function settingsAddBill(){
+  
+    var billItemTypeWithSettingsElem = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    
+    if(billItemTypeWithSettingsElem){
+    var billSettingsType = billItemTypeWithSettingsElem.value;
+        console.log(billSettingsType);
+
+    if(billSettingsType ==="call"){
+        callsTotal += callCost;
+        console.log(callsTotal);
+    } else if(billSettingsType === "sms"){
+        smsesTotal += smsCost;
+    }
+    
+    }
+    console.log(smsesTotal);
+callTotalSettingsElem.innerHTML = callsTotal.toFixed(2);
+smsTotalSettingsElem.innerHTML = smsesTotal.toFixed(2);
+totalCosts = callsTotal + smsesTotal;
+totalSettingsElem.innerHTML = totalCosts.toFixed(2);
+}
+
+
+
+
+
+
+
+
+settingsAddBtnElem.addEventListener('click', settingsAddBill)
+updateSettingsBtn.addEventListener('click', settingsUpdateBill)
+ 
 
  
