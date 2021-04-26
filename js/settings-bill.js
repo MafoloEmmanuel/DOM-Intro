@@ -66,13 +66,15 @@ function settingsAddBill(){
         smsesTotal += smsCost;
     }
     }
-   // console.log(smsesTotal);
-callTotalSettingsElem.innerHTML = callsTotal.toFixed(2);
-smsTotalSettingsElem.innerHTML = smsesTotal.toFixed(2);
+  
+
 //totalCosts = callsTotal + smsesTotal;
 if(totalCosts <= critical){
     totalCosts = callsTotal + smsesTotal;
 }
+
+callTotalSettingsElem.innerHTML = callsTotal.toFixed(2);
+smsTotalSettingsElem.innerHTML = smsesTotal.toFixed(2);
 totalSettingsElem.innerHTML = totalCosts.toFixed(2);
 
 if(totalCosts> critical){
