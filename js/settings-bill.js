@@ -65,22 +65,25 @@ function settingsAddBill(){
     } else if(billSettingsType === "sms"){
         smsesTotal += smsCost;
     }
-    
     }
-    console.log(smsesTotal);
+   // console.log(smsesTotal);
 callTotalSettingsElem.innerHTML = callsTotal.toFixed(2);
 smsTotalSettingsElem.innerHTML = smsesTotal.toFixed(2);
-totalCosts = callsTotal + smsesTotal;
-totalSettingsElem.innerHTML = totalCosts.toFixed(2);
+//totalCosts = callsTotal + smsesTotal;
+if(totalCosts <= critical){
+    totalCosts = callsTotal + smsesTotal;
 }
+totalSettingsElem.innerHTML = totalCosts.toFixed(2);
 
-
-
-
-
-
-
-
+if(totalCosts> critical){
+    totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
+} else if(totalCosts > warning){
+    totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
+}
+if(totalCosts<critical) {
+    totalCosts = callsTotal + smsesTotal;
+}
+}  
 settingsAddBtnElem.addEventListener('click', settingsAddBill)
 updateSettingsBtn.addEventListener('click', settingsUpdateBill)
  
