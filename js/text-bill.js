@@ -18,24 +18,24 @@ var totalOneElement = document.querySelector(".totalOne");
 
 // these variables are global and defined outside of the Add button event listener.
 
-var callsTotal = 0;
-var smsTotal = 0;
+var myCallsTotal = 0;
+var mySmsTotal = 0;
 
 function textBillTotal(){ 
     // get the value entered in the billType textfield
     var billTypeEntered = billTypeTextElement.value.trim();
     // update the correct total
     if (billTypeEntered === "call"){
-        callsTotal += 2.75
+        myCallsTotal += 2.75
     }
     else if (billTypeEntered === "sms"){
-        smsTotal += 0.75;
+        mySmsTotal += 0.75;
     }
 
     //update the totals that is displayed on the screen.
-    callTotalOneElement.innerHTML = callsTotal.toFixed(2);
-    smsTotalOneElement.innerHTML = smsTotal.toFixed(2);
-    var totalCost = callsTotal + smsTotal;
+    callTotalOneElement.innerHTML = myCallsTotal.toFixed(2);
+    smsTotalOneElement.innerHTML = mySmsTotal.toFixed(2);
+    var totalCost = myCallsTotal + mySmsTotal;
     totalOneElement.innerHTML = totalCost.toFixed(2);
 
     if (totalCost >= 50){

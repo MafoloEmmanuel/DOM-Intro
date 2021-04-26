@@ -4,7 +4,7 @@ var calculateBtnElement = document.querySelector(".calculateBtn");
 var billTotalElement = document.querySelector(".billTotal");
 
 function totalPhoneBill(billString){
-    var isPhoneBill = billString.split(', ');
+    var isPhoneBill = billString.split(',');
       var isTotalBill=0;
       for(var i=0;i<isPhoneBill.length;i++){
       var isBill= isPhoneBill[i].trim();
