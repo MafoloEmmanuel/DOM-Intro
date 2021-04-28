@@ -59,7 +59,7 @@ function settingsAddBill(){
     var billSettingsType = billItemTypeWithSettingsElem.value;
         console.log(billSettingsType);
 
-        if(totalCosts <= critical){
+        if(totalCosts < critical){
         
     if(billSettingsType ==="call"){
         callsTotal += callCost;
