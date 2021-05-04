@@ -11,7 +11,7 @@ function totalPhoneBill(billString){
        if(isBill == 'call'){
        isTotalBill += 2.75;
        } else if(isBill == 'sms'){
-       isTotalBill += 0.65
+       isTotalBill += 0.75;
        }
     }
        return isTotalBill.toFixed(2);

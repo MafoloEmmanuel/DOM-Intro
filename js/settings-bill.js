@@ -46,11 +46,14 @@ function settingsUpdateBill(){
     smsCost = Number(smsCostSettingElem.value);
      warning = warningLevelSettingElem.value;
      critical = criticalLevelSettingElem.value;
-  //console.log(callCost);
- // console.log(smsCost);
- // console.log(warning);
- // console.log(critical);
+     if(totalCosts >=critical){
+        totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
+    } else if(totalCosts >= warning){
+        totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
+    } 
+  
 }
+
 function settingsAddBill(){
   
     var billItemTypeWithSettingsElem = document.querySelector("input[name='billItemTypeWithSettings']:checked");
@@ -69,6 +72,7 @@ function settingsAddBill(){
     }
     }
 }
+
 totalCosts = callsTotal + smsesTotal;
 
 callTotalSettingsElem.innerHTML = callsTotal.toFixed(2);
@@ -80,10 +84,10 @@ if(totalCosts >=critical){
 } else if(totalCosts >= warning){
     totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
 } 
+} 
+updateSettingsBtn.addEventListener('click', settingsUpdateBill);
+settingsAddBtnElem.addEventListener('click', settingsAddBill);
 
-}  
-settingsAddBtnElem.addEventListener('click', settingsAddBill)
-updateSettingsBtn.addEventListener('click', settingsUpdateBill)
  
 
  
