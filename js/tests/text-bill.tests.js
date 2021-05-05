@@ -21,7 +21,14 @@ describe("The Text Bill factory function", function() {
         textBill.getSmsCost(0.75);
         assert.equal(0.75, textBill.getSmsCost());
     })
+    it("Should be able to get the call and sms total, then after get their overall total", function() {
+        let textBill = myTextBillTotal();
 
+        assert.equal("R2.75", textBill.getCallTotal());
+        assert.equal("R0.75", textBill.getSmsTotal());
+        assert.equal('R3.50', textBill.getOverallTotal());
+
+      });
     it("Should be able to get the call total", function() {
         let textBill = myTextBillTotal();
 

@@ -46,6 +46,7 @@ function settingsUpdateBill(){
     smsCost = Number(smsCostSettingElem.value);
      warning = warningLevelSettingElem.value;
      critical = criticalLevelSettingElem.value;
+     
      if(totalCosts >=critical){
         totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
     } else if(totalCosts >= warning){
