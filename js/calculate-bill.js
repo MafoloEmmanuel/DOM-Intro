@@ -12,6 +12,8 @@ function totalPhoneBill(billString){
        isTotalBill += 2.75;
        } else if(isBill == 'sms'){
        isTotalBill += 0.75;
+       } else {
+           console.log('Enter the correct string')
        }
     }
        return isTotalBill.toFixed(2);

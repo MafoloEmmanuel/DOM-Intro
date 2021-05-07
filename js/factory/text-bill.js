@@ -1,12 +1,11 @@
 function myTextBillTotal() {
     var overallTotal=0;
-    var overallSms =0;
-    var overallCall = 0;
+    var overallSms =10;
+    var overallCall = 5;
     var myCall= 2.75;
     var mySms= 0.75
 
     function getBillString(getBill){
-       
         if(getBill=== "call"){
          overallCall += myCall;
         } else if(getBill === "sms"){
@@ -26,28 +25,23 @@ function myTextBillTotal() {
         return mySms;
     }
     function getCallTotal() {
-        overallCall += myCall;
         return "R" + overallCall.toFixed(2);
     }
     function getSmsTotal() {
-         overallSms += mySms;
         // console.log(overallSms)
          return "R"+ overallSms.toFixed(2);
-        
     }
     function getOverallTotal(){
         overallTotal= overallSms + overallCall;
-        console.log(overallTotal)
+        console.log(overallTotal, overallSms, overallCall  )
         return 'R'+ overallTotal.toFixed(2);
     }
-    function colorChange () {
-        if(overallTotal >= 50){
-            getOverallTotal.classList.add('danger');
-        } else if (overallTotal>= 30){
-            getOverallTotal.classList.add('warning');
+    function colorChange() {
+        if(getOverallTotal() >= 50){
+            return "danger"
+        } else if (getOverallTotal() >= 30){
+            return "warning"
         }
-
-
     }
     return {
         getCall,

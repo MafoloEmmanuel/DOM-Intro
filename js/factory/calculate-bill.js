@@ -8,10 +8,16 @@ function calculateBillEvent(mybillString){
        myTotalBill += 2.75;
        } else if(myBill == 'sms'){
        myTotalBill += 0.65;
+       } else{
+          console.log("enter the correct string")
        }
     }
+    
        return 'R' + myTotalBill.toFixed(2);
     }
+    
+
+    
      
-calculateBillBtn.addEventListener('click', calculateBillEvent );
+//calculateBillBtn.addEventListener('click', calculateBillEvent );
 
