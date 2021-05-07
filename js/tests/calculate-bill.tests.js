@@ -26,13 +26,5 @@ describe ('The Calculate Bill Function', function(){
     it("Should calculate zero for any string other than sms and call", function(){
         calculateBillEvent("hello");
         assert.equal("R0.00", calculateBillEvent('hello'));
-    })
-
-    it("The total that is R20.00 or more should return warning", function(){
-        calculateBillEvent('sms,sms,call,sms,call,call,call,sms,call,call,sms,call')
-        assert.equal("warning", calculateBillEvent('sms,sms,call,sms,call,call,call,sms,call,call,call')
-        )
-    })
-
-   
+    }) 
 })

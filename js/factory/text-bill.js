@@ -1,7 +1,7 @@
 function myTextBillTotal() {
     var overallTotal=0;
-    var overallSms =10;
-    var overallCall = 5;
+    var overallSms =0;
+    var overallCall =0;
     var myCall= 2.75;
     var mySms= 0.75
 
@@ -25,11 +25,12 @@ function myTextBillTotal() {
         return mySms;
     }
     function getCallTotal() {
+        overallCall += myCall;
         return "R" + overallCall.toFixed(2);
     }
     function getSmsTotal() {
-        // console.log(overallSms)
-         return "R"+ overallSms.toFixed(2);
+        overallSms += mySms;
+        return "R"+ overallSms.toFixed(2);
     }
     function getOverallTotal(){
         overallTotal= overallSms + overallCall;
@@ -37,10 +38,11 @@ function myTextBillTotal() {
         return 'R'+ overallTotal.toFixed(2);
     }
     function colorChange() {
-        if(getOverallTotal() >= 50){
-            return "danger"
-        } else if (getOverallTotal() >= 30){
-            return "warning"
+        overallTotal= overallSms + overallCall;
+        if(overallTotal >= 50){
+            return "danger";
+        } else if (overallTotal >= 30){
+            return "warning";
         }
     }
     return {

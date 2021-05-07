@@ -12,12 +12,7 @@ function calculateBillEvent(mybillString){
           console.log("enter the correct string")
        }
     }
-    
        return 'R' + myTotalBill.toFixed(2);
-    }
-    
-
-    
-     
+    }   
 //calculateBillBtn.addEventListener('click', calculateBillEvent );
 
