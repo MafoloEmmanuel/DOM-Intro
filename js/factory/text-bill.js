@@ -34,7 +34,7 @@ function myTextBillTotal() {
     }
     function getOverallTotal(){
         overallTotal= overallSms + overallCall;
-       // console.log(overallTotal, overallSms, overallCall  )
+       console.log(overallTotal, overallSms, overallCall)
         return 'R'+ overallTotal.toFixed(2);
     }
     function colorChange() {
