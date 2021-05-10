@@ -48,9 +48,9 @@ function settingsUpdateBill(){
      critical = criticalLevelSettingElem.value;
      
      if(totalCosts >=critical){
-        totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
+        totalSettingsElem.classList.remove(totalSettingsElem.className, "danger");
     } else if(totalCosts >= warning){
-        totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
+        totalSettingsElem.classList.remove(totalSettingsElem.className, "warning");
     } 
   
 }
@@ -81,9 +81,9 @@ smsTotalSettingsElem.innerHTML = smsesTotal.toFixed(2);
 totalSettingsElem.innerHTML = totalCosts.toFixed(2);
 
 if(totalCosts >=critical){
-    totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
+    totalSettingsElem.classList.remove(totalSettingsElem.className, "danger");
 } else if(totalCosts >= warning){
-    totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
+    totalSettingsElem.classList.remove(totalSettingsElem.className, "warning");
 } 
 } 
 updateSettingsBtn.addEventListener('click', settingsUpdateBill);

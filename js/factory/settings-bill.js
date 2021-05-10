@@ -32,11 +32,15 @@ function billWithSettings(){
        return 'R' + theCriticalLevel.toFixed(2);
    }
    function makeCall(){
+     if(!hasReachedCriticalLevel()){
       callCostTotal += theCallCost; 
    }
+  }
    function makeSms(){
+     if(!hasReachedCriticalLevel()){
      smsCostTotal += theSmsCost;
    }
+  }
    function getTheCallsTotal(){
        return 'R' + callCostTotal.toFixed(2);
    }
@@ -46,7 +50,10 @@ function billWithSettings(){
    function getTheTotalCost(){
      theTotalCosts = callCostTotal + smsCostTotal;
      return 'R' + theTotalCosts.toFixed(2);
-   }       
+   } 
+   function hasReachedCriticalLevel(){
+     return theTotalCosts >= theCriticalLevel;  
+   }
    function totalClassName(){
     theTotalCosts = callCostTotal + smsCostTotal;
      if(theTotalCosts>= theCriticalLevel){
@@ -54,7 +61,8 @@ function billWithSettings(){
     } else if(theTotalCosts>= theWarningLevel){
       return "warning";
     } 
-   } 
+   
+  }
    return{
     setTheCallCost,
     getTheCallCost,
