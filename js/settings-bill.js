@@ -42,21 +42,27 @@ var warning = 0;
 var critical = 0;
 
 function settingsUpdateBill(){
+    totalSettingsElem.classList.remove("danger");
+    totalSettingsElem.classList.remove("warning");
+
+
     callCost = Number(callCostSettingElem.value);
     smsCost = Number(smsCostSettingElem.value);
      warning = warningLevelSettingElem.value;
      critical = criticalLevelSettingElem.value;
      
      if(totalCosts >=critical){
-        totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
+        totalSettingsElem.classList.add("danger");
     } else if(totalCosts >= warning){
-        totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
+        totalSettingsElem.classList.add("warning");
     } 
   
 }
+updateSettingsBtn.addEventListener('click', settingsUpdateBill);
 
 function settingsAddBill(){
-  
+    totalSettingsElem.classList.remove("danger");
+    totalSettingsElem.classList.remove("warning");
     var billItemTypeWithSettingsElem = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     
     if(billItemTypeWithSettingsElem){
@@ -81,9 +87,9 @@ smsTotalSettingsElem.innerHTML = smsesTotal.toFixed(2);
 totalSettingsElem.innerHTML = totalCosts.toFixed(2);
 
 if(totalCosts >=critical){
-    totalSettingsElem.classList.replace(totalSettingsElem.className, "danger");
+    totalSettingsElem.classList.add("danger");
 } else if(totalCosts >= warning){
-    totalSettingsElem.classList.replace(totalSettingsElem.className, "warning");
+    totalSettingsElem.classList.add("warning");
 } 
 } 
 updateSettingsBtn.addEventListener('click', settingsUpdateBill);
