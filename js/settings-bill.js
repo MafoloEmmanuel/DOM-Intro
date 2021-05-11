@@ -61,7 +61,7 @@ function settingsUpdateBill(){
 updateSettingsBtn.addEventListener('click', settingsUpdateBill);
 
 function settingsAddBill(){
-    totalSettingsElem.classList.remove("danger");
+   totalSettingsElem.classList.remove("danger");
     totalSettingsElem.classList.remove("warning");
     var billItemTypeWithSettingsElem = document.querySelector("input[name='billItemTypeWithSettings']:checked");
     

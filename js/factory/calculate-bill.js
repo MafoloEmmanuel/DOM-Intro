@@ -14,5 +14,4 @@ function calculateBillEvent(mybillString){
     }
        return 'R' + myTotalBill.toFixed(2);
     }   
-//calculateBillBtn.addEventListener('click', calculateBillEvent );
 
