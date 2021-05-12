@@ -26,16 +26,16 @@ function myTextBillTotal() {
     }
     function getCallTotal() {
         overallCall += myCall;
-        return "R" + overallCall.toFixed(2);
+        return  overallCall.toFixed(2);
     }
     function getSmsTotal() {
         overallSms += mySms;
-        return "R"+ overallSms.toFixed(2);
+        return overallSms.toFixed(2);
     }
     function getOverallTotal(){
         overallTotal= overallSms + overallCall;
-       console.log(overallTotal, overallSms, overallCall)
-        return 'R'+ overallTotal.toFixed(2);
+       
+        return overallTotal.toFixed(2);
     }
     function colorChange() {
         overallTotal= overallSms + overallCall;

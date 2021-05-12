@@ -37,7 +37,6 @@ function myRadioBillTotal() {
     }
     function myGetOverallTotal(){
         theOverallTotal= theOverallSms + theOverallCall;
-      // console.log(theOverallTotal, theOverallSms, theOverallCall)
         return 'R'+ theOverallTotal.toFixed(2);
     }
     function theColorChange() {
