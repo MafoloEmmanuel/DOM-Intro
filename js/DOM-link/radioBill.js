@@ -10,7 +10,7 @@ function radioBillTotalTwo(){
     var billItemTypeRadioElem = document.querySelector("input[name='billItemType']:checked");
 
   var mybillItemType = billItemTypeRadioElem.value;
-  myRadio.getRadio(mybillItemType);
+    myRadio.getRadio(mybillItemType);
     callTotalTwoElem.innerHTML = myRadio.myGetCallTotal();
     smsTotalTwoElem.innerHTML = myRadio.myGetSmsTotal();
     theColorElem.classList.add(myRadio.theColorChange());
