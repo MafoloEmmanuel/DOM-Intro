@@ -12,8 +12,8 @@ function textBillTotalTwo(){
 
 textConstant.getBillString(mybillTypeEntered);
 console.log(mybillTypeEntered);
-callTotalOneElement.innerHTML = textConstant.getCallCost();
-smsTotalOneElement.innerHTML = textConstant.getSmsCost();
+callTotalOneElement.innerHTML = textConstant.getCallTotal();
+smsTotalOneElement.innerHTML = textConstant.getSmsTotal();
 colorElem.classList.add(textConstant.colorChange());
 
 totalOneElement.innerHTML = textConstant.getOverallTotal();

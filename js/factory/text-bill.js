@@ -25,11 +25,11 @@ function myTextBillTotal() {
         return mySms;
     }
     function getCallTotal() {
-        overallCall += myCall;
+     // overallCall += myCall;
         return  overallCall.toFixed(2);
     }
     function getSmsTotal() {
-        overallSms += mySms;
+       // overallSms += mySms;
         return overallSms.toFixed(2);
     }
     function getOverallTotal(){
