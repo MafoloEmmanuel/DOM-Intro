@@ -4,21 +4,21 @@ describe("The Bill with Settings factory function", function(){
         let settingsBill= billWithSettings();
 
         settingsBill.setTheCallCost(1.85);
-        assert.equal('R1.85', settingsBill.getTheCallCost());
+        assert.equal(1.85, settingsBill.getTheCallCost());
         let settingsBill2= billWithSettings();
 
         settingsBill2.setTheCallCost(2.85);
-        assert.equal('R2.85', settingsBill2.getTheCallCost());
+        assert.equal(2.85, settingsBill2.getTheCallCost());
     });
     it("should be able to set the sms cost", function(){
         let settingsBill= billWithSettings();
 
         settingsBill.setTheSmsCost(0.85);
-        assert.equal('R0.85', settingsBill.getTheSmsCost());
+        assert.equal(0.85, settingsBill.getTheSmsCost());
         let settingsBill2= billWithSettings();
-
+ 
         settingsBill2.setTheSmsCost(0.95);
-        assert.equal('R0.95', settingsBill2.getTheSmsCost());
+        assert.equal(0.95, settingsBill2.getTheSmsCost());
     });
     it("should be able to set the call and sms cost", function(){
         let settingsBill= billWithSettings();
@@ -26,20 +26,20 @@ describe("The Bill with Settings factory function", function(){
         settingsBill.setTheSmsCost(0.95);
         settingsBill.setTheCallCost(2.95);
 
-        assert.equal('R0.95', settingsBill.getTheSmsCost());
-        assert.equal('R2.95', settingsBill.getTheCallCost());
+        assert.equal(0.95, settingsBill.getTheSmsCost());
+        assert.equal(2.95, settingsBill.getTheCallCost());
     });
     it("should be able to set the Warning level", function(){
         let settingsBill= billWithSettings();
 
         settingsBill.setTheWarningLevel(10.00);
-        assert.equal('R10.00', settingsBill.getTheWarningLevel());
+        assert.equal(10.00, settingsBill.getTheWarningLevel());
     });
     it("should be able to set the Critical level", function(){
         let settingsBill= billWithSettings();
 
         settingsBill.setTheCriticalLevel(15.00);
-        assert.equal('R15.00', settingsBill.getTheCriticalLevel());
+        assert.equal(15.00, settingsBill.getTheCriticalLevel());
     });
     it("should be able to set the Warning and Critical levels", function(){
         let settingsBill= billWithSettings();
@@ -47,8 +47,8 @@ describe("The Bill with Settings factory function", function(){
         settingsBill.setTheWarningLevel(15.00);
         settingsBill.setTheCriticalLevel(25.00);
 
-        assert.equal('R15.00', settingsBill.getTheWarningLevel());
-        assert.equal('R25.00', settingsBill.getTheCriticalLevel());
+        assert.equal(15.00, settingsBill.getTheWarningLevel());
+        assert.equal(25.00, settingsBill.getTheCriticalLevel());
 
     });
 
@@ -66,9 +66,9 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
 
-            assert.equal("R8.85", settingsBill.getTheCallsTotal());
-            assert.equal("R0.00", settingsBill.getTheSmsesTotal());
-            assert.equal("R8.85", settingsBill.getTheTotalCost());
+            assert.equal(8.85, settingsBill.getTheCallsTotal());
+            assert.equal(0.00, settingsBill.getTheSmsesTotal());
+            assert.equal(8.85, settingsBill.getTheTotalCost());
 
          })
          it("Should be able to make one call and return the total", function(){
@@ -79,8 +79,8 @@ describe("The Bill with Settings factory function", function(){
              settingsBill.setTheCriticalLevel(15.00)
              settingsBill.makeCall();
              
-             assert.equal("R2.50", settingsBill.getTheCallsTotal());
-             assert.equal("R2.50", settingsBill.getTheTotalCost());
+             assert.equal(2.50, settingsBill.getTheCallsTotal());
+             assert.equal(2.50, settingsBill.getTheTotalCost());
 
          })
          it("Should be able to make one sms and return the total", function(){
@@ -91,8 +91,8 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.setTheCriticalLevel(15.00)
             settingsBill.makeSms();
             
-            assert.equal("R0.50", settingsBill.getTheSmsesTotal());
-            assert.equal("R0.50", settingsBill.getTheTotalCost());
+            assert.equal(0.50, settingsBill.getTheSmsesTotal());
+            assert.equal(0.50, settingsBill.getTheTotalCost());
 
         })
         it("Should be able to use the call and sms cost that's been set to find the total", function(){
@@ -112,9 +112,9 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeSms();
 
 
-            assert.equal("R8.85", settingsBill.getTheCallsTotal());
-            assert.equal("R3.80", settingsBill.getTheSmsesTotal());
-            assert.equal("R12.65", settingsBill.getTheTotalCost());
+            assert.equal(8.85, settingsBill.getTheCallsTotal());
+            assert.equal(3.80, settingsBill.getTheSmsesTotal());
+            assert.equal(12.65, settingsBill.getTheTotalCost());
 
          })
          it("Should be able to use the call and sms cost that's been set to find the total", function(){
@@ -135,9 +135,9 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeSms();
 
 
-            assert.equal("R15.80", settingsBill.getTheCallsTotal());
-            assert.equal("R3.80", settingsBill.getTheSmsesTotal());
-            assert.equal("R19.60", settingsBill.getTheTotalCost());
+            assert.equal(15.80, settingsBill.getTheCallsTotal());
+            assert.equal(3.80, settingsBill.getTheSmsesTotal());
+            assert.equal(19.60, settingsBill.getTheTotalCost());
 
          })
 
@@ -158,8 +158,8 @@ describe("The Bill with Settings factory function", function(){
              settingsBill.makeSms();
             
 
-             assert.equal("R11.80", settingsBill.getTheTotalCost());
-             assert.equal("warning", settingsBill.totalClassName());
+             assert.equal(11.80, settingsBill.getTheTotalCost());
+             assert.equal('warning', settingsBill.totalClassName());
          })
          it('Should return a class name of "danger" when a critical level is reached', function(){
             let settingsBill = billWithSettings();
@@ -176,7 +176,7 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeSms();
             settingsBill.makeSms();
 
-            assert.equal("R19.65", settingsBill.getTheTotalCost());
+            assert.equal(19.65, settingsBill.getTheTotalCost());
             assert.equal("danger", settingsBill.totalClassName());
         })
         it('Should return a class name of "danger" when a critical level is reached', function(){
@@ -201,7 +201,7 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeSms();
             settingsBill.makeSms();
 
-            assert.equal("R39.30", settingsBill.getTheTotalCost());
+            assert.equal(39.30, settingsBill.getTheTotalCost());
             assert.equal("danger", settingsBill.totalClassName());
         });
         it("Should stop the total call cost from increasing when the critical level is reached", function(){
@@ -221,13 +221,13 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
         
-            assert.equal("R27.55", settingsBill.getTheTotalCost());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal());
+            assert.equal(27.55, settingsBill.getTheTotalCost());
+            assert.equal(19.75, settingsBill.getTheCallsTotal());
             assert.equal("danger", settingsBill.totalClassName());
 
             settingsBill.makeCall();
             settingsBill.makeCall();
-            assert.equal("R19.75", settingsBill.getTheCallsTotal());
+            assert.equal(19.75, settingsBill.getTheCallsTotal());
 
 
         })
@@ -248,15 +248,15 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
         
-            assert.equal("R27.55", settingsBill.getTheTotalCost());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal())
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
+            assert.equal(27.55, settingsBill.getTheTotalCost());
+            assert.equal(19.75, settingsBill.getTheCallsTotal())
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
             assert.equal("danger", settingsBill.totalClassName());
 
             settingsBill.makeSms();
             settingsBill.makeSms();
 
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
         })
         it("Should stop the total call and sms cost from increasing when the critical level is reached", function(){
             let settingsBill = billWithSettings();
@@ -275,17 +275,17 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
         
-            assert.equal("R27.55", settingsBill.getTheTotalCost());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal())
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
+            assert.equal(27.55, settingsBill.getTheTotalCost());
+            assert.equal(19.75, settingsBill.getTheCallsTotal())
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
             assert.equal("danger", settingsBill.totalClassName());
 
             settingsBill.makeSms();
             settingsBill.makeSms();
             settingsBill.makeCall();
             settingsBill.makeCall();
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal());
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
+            assert.equal(19.75, settingsBill.getTheCallsTotal());
 
         });
         it("Should stop the overall total cost of the calls and smse from increasing when the critical level is reached", function(){
@@ -305,9 +305,9 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
         
-            assert.equal("R27.55", settingsBill.getTheTotalCost());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal())
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
+            assert.equal(27.55, settingsBill.getTheTotalCost());
+            assert.equal(19.75, settingsBill.getTheCallsTotal())
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
             assert.equal("danger", settingsBill.totalClassName());
 
             settingsBill.makeSms();
@@ -317,9 +317,9 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
 
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal());
-            assert.equal("R27.55", settingsBill.getTheTotalCost())
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
+            assert.equal(19.75, settingsBill.getTheCallsTotal());
+            assert.equal(27.55, settingsBill.getTheTotalCost())
         });
         it("Should allow the total costs of the calls and smse to increasing when the critical level is changed", function(){
             let settingsBill = billWithSettings();
@@ -337,11 +337,13 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeSms();
             settingsBill.makeCall();
             settingsBill.makeCall();
+            settingsBill.makeCall();
         
-            assert.equal("R27.55", settingsBill.getTheTotalCost());
-            assert.equal("R19.75", settingsBill.getTheCallsTotal())
-            assert.equal("R7.80", settingsBill.getTheSmsesTotal());
-            assert.equal("warning", settingsBill.totalClassName());
+            assert.equal(31.50, settingsBill.getTheTotalCost());
+            assert.equal(23.70, settingsBill.getTheCallsTotal())
+            assert.equal(7.80, settingsBill.getTheSmsesTotal());
+            assert.equal("danger", settingsBill.totalClassName());
+            settingsBill.setTheCriticalLevel(38.00);    
 
             settingsBill.makeSms();
             settingsBill.makeSms();
@@ -349,10 +351,12 @@ describe("The Bill with Settings factory function", function(){
             settingsBill.makeCall();
             settingsBill.makeCall();
             settingsBill.makeCall();
+            settingsBill.makeSms();
 
-            assert.equal("R11.70", settingsBill.getTheSmsesTotal());
-            assert.equal("R35.55", settingsBill.getTheCallsTotal());
-            assert.equal("R47.25", settingsBill.getTheTotalCost())
+
+            assert.equal(13.65, settingsBill.getTheSmsesTotal());
+            assert.equal(39.50, settingsBill.getTheCallsTotal());
+            assert.equal(53.15, settingsBill.getTheTotalCost())
         });
     });
 });

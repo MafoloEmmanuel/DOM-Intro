@@ -31,7 +31,7 @@ function myTextBillTotal() {
     function getSmsTotal() {
        // overallSms += mySms;
         return overallSms.toFixed(2);
-    }
+    } 
     function getOverallTotal(){
         overallTotal= overallSms + overallCall;
        

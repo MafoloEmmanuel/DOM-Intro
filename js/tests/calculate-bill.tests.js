@@ -1,30 +1,53 @@
 describe ('The Calculate Bill Function', function(){
     it("Should calculate the total bill of one call to be R2.75", function(){
-        calculateBillEvent('call');
-        assert.equal('R2.75',calculateBillEvent('call'));
-        
+        let iscalculate = calculateBillEvent();
+        iscalculate.totalPhoneBill('call');
+        assert.equal(2.75, iscalculate.theTotalBill())
+
     });
     it("Should calculate the total bill of one sms to be R0.75", function(){
-        calculateBillEvent('sms');
-        assert.equal('R0.65',calculateBillEvent('sms'));
+        let iscalculate = calculateBillEvent();
+        iscalculate.totalPhoneBill('sms');
+        assert.equal(0.75, iscalculate.theTotalBill())
     });
 
     it("Should calculate the total bill of two calls to be R5.50", function(){
-        calculateBillEvent('call,call');
-        assert.equal(calculateBillEvent('call,call'), 'R5.50');
+        let iscalculate = calculateBillEvent();
+        iscalculate.totalPhoneBill('call,call');
+        assert.equal(5.50, iscalculate.theTotalBill())
     });
     it("Should calculate the total bill of two smses to be R1.30", function(){
-        calculateBillEvent('sms,sms');
-        assert.equal(calculateBillEvent('sms,sms'), 'R1.30');
+        let iscalculate = calculateBillEvent();
+        iscalculate.totalPhoneBill('sms,sms');
+        assert.equal(1.50, iscalculate.theTotalBill())
     });
+
     
-    it("Should calculate the total bill of both the calls and smses to be R12.30", function(){
-        calculateBillEvent('call,call,sms,sms,call,call');
-        assert.equal(calculateBillEvent('call,call,sms,sms,call,call'), 'R12.30');
+    it("Should calculate the total bill of two calls and two smses to be R7.00 ", function(){
+        let iscalculate = calculateBillEvent();
+        iscalculate.totalPhoneBill('call,call,sms,sms');
+        assert.equal(7.00, iscalculate.theTotalBill())
     });
 
     it("Should calculate zero for any string other than sms and call", function(){
-        calculateBillEvent("hello");
-        assert.equal("R0.00", calculateBillEvent('hello'));
+        let iscalculate = calculateBillEvent();
+        iscalculate.totalPhoneBill('hello');
+        assert.equal(0.00, iscalculate.theTotalBill())
     }) 
+    describe('The warning and critical level', function(){
+        it('Should change the class name to warning when the total is more than R20.00', function(){
+            let iscalculate = calculateBillEvent();
+            iscalculate.totalPhoneBill('call,call,call,sms,sms,sms,call,call,call,sms,sms,call,call,call');
+            assert.equal(28.50, iscalculate.theTotalBill())
+            assert.equal('warning', iscalculate.isColorChange())
+
+        })
+        it('Should change the class name to danger when the total is more than R20.00', function(){
+            let iscalculate = calculateBillEvent();
+            iscalculate.totalPhoneBill('call,call,call,sms,sms,sms,call,call,call,sms,sms,call,call,call,sms,sms,call,call');
+            assert.equal(35.50, iscalculate.theTotalBill())
+            assert.equal('danger', iscalculate.isColorChange())
+
+        })
+    })
 })

@@ -14,8 +14,9 @@ textConstant.getBillString(mybillTypeEntered);
 console.log(mybillTypeEntered);
 callTotalOneElement.innerHTML = textConstant.getCallTotal();
 smsTotalOneElement.innerHTML = textConstant.getSmsTotal();
-colorElem.classList.add(textConstant.colorChange());
 
 totalOneElement.innerHTML = textConstant.getOverallTotal();
+colorElem.classList.add(textConstant.colorChange());
+
 }
 addToBillBtnElement.addEventListener('click', textBillTotalTwo);

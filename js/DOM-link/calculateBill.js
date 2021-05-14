@@ -2,21 +2,21 @@
 var billStringElement = document.querySelector(".billString");
 var calculateBtnElement = document.querySelector(".calculateBtn");
 var billTotalElement = document.querySelector(".billTotal");
+var color = document.querySelector(".total");
 
- 
-    function calculateBtnClicked(){ 
-        var billString= billStringElement.value;
-        var roundedBillTotal = totalPhoneBill(billString);
-        billTotalElement.innerHTML= roundedBillTotal;
-        var istotal= roundedBillTotal;
-        if(istotal>= 30.00){
-            billTotalElement.classList.replace(billTotalElement.className, "danger");
-        } else if(istotal>=20.00){
-            billTotalElement.classList.replace(billTotalElement.className, "warning");
-        } else {
-            billTotalElement.classList.replace(billTotalElement.className, "billTotal");
-        }
 
-    }
+function calculateBtnClicked(){
+    color.classList.remove('warning');
+    color.classList.remove('danger');
+
+
+    var myCalculate = calculateBillEvent();
+
+    var theBillString= billStringElement.value.trim();
+    myCalculate.totalPhoneBill(theBillString);
+    billTotalElement.innerHTML = myCalculate.theTotalBill();
+    color.classList.add(billTotalElement.className, myCalculate.isColorChange());
+
+}
 
 calculateBtnElement.addEventListener('click',  calculateBtnClicked)

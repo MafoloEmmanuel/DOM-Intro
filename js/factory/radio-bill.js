@@ -7,20 +7,24 @@ function myRadioBillTotal() {
     var isCall= 2.75;
     var isSms= 0.75
 
+    function getRadioString(billRadio){
+        if(billRadio=== "call"){
+         theOverallCall += isCall;
+        } else if(billRadio === "sms"){
+             theOverallSms += isSms;
+         } 
+        }
     function myGetCall(){
         isCallCost= isCall;
-
     }
     function myGetSms(){
         isSmsCost = isSms;
     }
     function myGetCallCost() {
-        return 'R'+ isCallCost.toFixed(2);
-
+        return isCallCost.toFixed(2);
     }
     function myGetSmsCost() {
-        return 'R'+ isSmsCost.toFixed(2);
-
+        return isSmsCost.toFixed(2);
     }
     function isMakeCall(){
         theOverallCall += isCallCost; 
@@ -29,15 +33,14 @@ function myRadioBillTotal() {
        theOverallSms += isSmsCost;
      }
     function myGetCallTotal() {
-        return 'R'+ theOverallCall.toFixed(2);
-       
+        return  theOverallCall.toFixed(2);
     }
     function myGetSmsTotal() {
-        return "R"+ theOverallSms.toFixed(2);
+        return theOverallSms.toFixed(2);
     }
     function myGetOverallTotal(){
         theOverallTotal= theOverallSms + theOverallCall;
-        return 'R'+ theOverallTotal.toFixed(2);
+        return  theOverallTotal.toFixed(2);
     }
     function theColorChange() {
         theOverallTotal= theOverallSms + theOverallCall;
@@ -48,6 +51,7 @@ function myRadioBillTotal() {
         }
     }
     return {
+        getRadioString,
         myGetCall,
         myGetSms,
         myGetCallCost,

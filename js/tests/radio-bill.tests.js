@@ -3,31 +3,31 @@ describe("The Radio Bill factory function", function(){
         it("Should be able to get the value for one the call", function(){
             let radioBill = myRadioBillTotal();
             radioBill.myGetCall();
-            assert.equal("R2.75", radioBill.myGetCallCost());
+            assert.equal(2.75, radioBill.myGetCallCost());
         })
        
         it("Should be able to get the value for the sms", function(){
             let radioBill = myRadioBillTotal();
             radioBill.myGetSms();
-            assert.equal("R0.75", radioBill.myGetSmsCost());
+            assert.equal(0.75, radioBill.myGetSmsCost());
         })
-
+ 
     })
     describe("Get the Totals", function(){
         it("Should be able to get the total for one call", function(){
             let radioBill = myRadioBillTotal();
             radioBill.myGetCall();
             radioBill.isMakeCall();
-            assert.equal("R2.75", radioBill.myGetCallCost());
-            assert.equal("R2.75", radioBill.myGetOverallTotal());
+            assert.equal(2.75, radioBill.myGetCallCost());
+            assert.equal(2.75, radioBill.myGetOverallTotal());
 
         })
         it("Should be able to get the total for one sms", function(){
             let radioBill = myRadioBillTotal();
             radioBill.myGetSms();
             radioBill.isMakeSms();
-            assert.equal("R0.75", radioBill.myGetSmsCost());
-            assert.equal("R0.75", radioBill.myGetOverallTotal());
+            assert.equal(0.75, radioBill.myGetSmsCost());
+            assert.equal(0.75, radioBill.myGetOverallTotal());
 
         })
         it("Should be able to get the total for one call and one sms", function(){
@@ -38,9 +38,9 @@ describe("The Radio Bill factory function", function(){
             radioBill.isMakeSms();
             radioBill.isMakeCall();
 
-            assert.equal("R2.75", radioBill.myGetCallCost());
-            assert.equal("R0.75", radioBill.myGetSmsCost());
-            assert.equal("R3.50", radioBill.myGetOverallTotal());
+            assert.equal(2.75, radioBill.myGetCallCost());
+            assert.equal(0.75, radioBill.myGetSmsCost());
+            assert.equal(3.50, radioBill.myGetOverallTotal());
 
         })
         it("Should be able to get the total for three calls and three smses", function(){
@@ -57,9 +57,9 @@ describe("The Radio Bill factory function", function(){
             radioBill.isMakeCall();
 
 
-            assert.equal("R2.75", radioBill.myGetCallCost());
-            assert.equal("R0.75", radioBill.myGetSmsCost());
-            assert.equal("R10.50", radioBill.myGetOverallTotal());
+            assert.equal(2.75, radioBill.myGetCallCost());
+            assert.equal(0.75, radioBill.myGetSmsCost());
+            assert.equal(10.50, radioBill.myGetOverallTotal());
 
         })
 
@@ -91,7 +91,7 @@ describe("The Radio Bill factory function", function(){
             radioBill.isMakeCall();
             radioBill.isMakeCall();
 
-            assert.equal("R37.50", radioBill.myGetOverallTotal());
+            assert.equal(37.50, radioBill.myGetOverallTotal());
             assert.equal("warning", radioBill.theColorChange());
 
             })
@@ -133,7 +133,7 @@ describe("The Radio Bill factory function", function(){
                 radioBill.isMakeCall();
                 radioBill.isMakeCall();
     
-                assert.equal("R64.50", radioBill.myGetOverallTotal());
+                assert.equal(64.50, radioBill.myGetOverallTotal());
                 assert.equal("danger", radioBill.theColorChange());
 
             });

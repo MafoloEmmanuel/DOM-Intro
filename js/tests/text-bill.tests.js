@@ -26,144 +26,123 @@ describe("The Text Bill factory function", function() {
     describe("Calculate the Totals", function(){
         it("Should be able to get the call total for one call", function() {
             let textBill = myTextBillTotal();
+            textBill.getBillString('call');
+
             assert.equal(2.75, textBill.getCallTotal());
     
           });
-        it("Should be able to get the call total", function() {
+        it("Should be able to get the call total for three calls", function() {
             let textBill = myTextBillTotal();
-    
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            assert.equal(11.00, textBill.getCallTotal());
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+
+            assert.equal(8.25, textBill.getCallTotal());
            });
         it("Should be able to get the sms total for one sms", function() {
             let textBill = myTextBillTotal();
+            textBill.getBillString('sms');
+
             assert.equal(0.75, textBill.getSmsTotal());
     
           });
-        it("Should be able to get the sms total", function() {
+        it("Should be able to get the sms total for three smses", function() {
             let textBill = myTextBillTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            assert.equal(4.50, textBill.getSmsTotal());
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+
+            assert.equal(2.25, textBill.getSmsTotal());
     
         });
-        it("Should be able to calculate the overall total for calls and smses", function(){
+        it("Should be able to calculate the overall total for three calls and three smses", function(){
             let textBill = myTextBillTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+
             
-            assert.equal(12.00, textBill.getOverallTotal());
+            assert.equal(10.50, textBill.getOverallTotal());
         });
-        it("Should be able to calculate the overall total for calls and smses", function(){
+        it("Should be able to calculate the overall total for five calls and five smses", function(){
             let textBill = myTextBillTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+
             
 
-            assert.equal(20.25, textBill.getOverallTotal());
+            assert.equal(17.50, textBill.getOverallTotal());
         });  
     })
     describe("The warning and critical level", function(){
         it("Should return warning when the total is more than R30.00", function(){
             let textBill = myTextBillTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();            
-            assert.equal(30.25, textBill.getOverallTotal());
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+            textBill.getBillString('call');
+
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');           
+            assert.equal(31.25, textBill.getOverallTotal());
             assert.equal("warning", textBill.colorChange()) 
         })
-        it("Should return warning for the total of R40.50 as its more than R30.00", function(){
-            let textBill = myTextBillTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getSmsTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();
-            textBill.getCallTotal();  
-            assert.equal(40.50, textBill.getOverallTotal());       
-            assert.equal("warning", textBill.colorChange());
-    });
+       
     it("Should return Warning for the total that is more than R50.00", function(){
         let textBill = myTextBillTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getSmsTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();
-        textBill.getCallTotal();  
-        assert.equal(51.50, textBill.getOverallTotal());       
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');  
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call'); 
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call');
+        textBill.getBillString('call'); 
+        textBill.getBillString('call');
+        textBill.getBillString('call'); 
+        
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+            textBill.getBillString('sms');
+        assert.equal(56.50, textBill.getOverallTotal());       
         assert.equal("danger", textBill.colorChange());
 });
     })
